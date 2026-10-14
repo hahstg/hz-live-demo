@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1f2937" />
+    <meta
+      name="description"
+      content="Offline-ready demo app with a service worker for caching and offline fallbacks."
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>HZ Live Demo</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Offline-first demo</p>
+          <h1>HZ Live Demo</h1>
+        </div>
+        <span id="status-pill" class="status-pill online">Online</span>
+      </header>
+
+      <main class="card">
+        <p class="intro">
+          This demo app is cached by a service worker so it can load offline after the
+          first visit.
+        </p>
+
+        <div class="stats">
+          <div class="stat-box">
+            <span class="label">Network</span>
+            <strong id="network-status">Online</strong>
+          </div>
+          <div class="stat-box">
+            <span class="label">Service Worker</span>
+            <strong id="sw-status">Checking...</strong>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="reload-btn" type="button">Refresh demo</button>
+          <button id="toggle-theme" type="button" class="secondary">Toggle theme</button>
+        </div>
+
+        <section class="feed">
+          <h2>Demo notes</h2>
+          <ul>
+            <li>App shell is precached on install.</li>
+            <li>Navigation requests use a network-first fallback.</li>
+            <li>Static assets are cached for offline use.</li>
+            <li>Older caches are removed when the service worker activates.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
